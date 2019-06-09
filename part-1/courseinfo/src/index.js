@@ -2,26 +2,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const Part = (props) => {
+    return (
+        <p>
+            {props.part}: {props.exercises}
+        </p>
+    )
+}
+
 const Content = (props) => {
-return (
+    const part1 = "Fundamentals of React"
+    const exercises1 = 10
+    const part2 = "Using Props To Pass Data"
+    const exercises2 = 7
+    const part3 = "State of a Component"
+    const exercises3 = 14
+    return (
         <div>
-            <p>
-                {props.part1}: Exercises {props.exercises1}
-            </p>
-            <p>
-                {props.part2}: Exercises {props.exercises2}
-            </p>
-            <p>
-                {props.part3}: Exercises {props.exercises3}
-            </p>
+            <Part part={part1} exercises={exercises1}/>
+            <Part part={part2} exercises={exercises2}/>
+            <Part part={part3} exercises={exercises3}/>
         </div>
-)
+    )
 }
 
 const Header = (props) => {
     return (
         <h1>
-                {props.course}
+            {props.course}
         </h1>
     )
 }
@@ -29,25 +37,18 @@ const Header = (props) => {
 const Total = (props) => {
     return (
         <p>
-                Total number of exercises: {props.exercises1 + props.exercises2 + props.exercises3}
+            Total number of exercises: {props.exercises1 + props.exercises2 + props.exercises3}
         </p>
     )
 }
 
 const App = () => {
     const course = "Half Stack Application Development"
-    const part1 = "Fundamentals of React"
-    const exercises1 = 10
-    const part2 = "Using Props To Pass Data"
-    const exercises2 = 7
-    const part3 = "State of a Component"
-    const exercises3 = 14
-
     return (
         <div>
             <Header course={course} />
-            <Content part1={part1} part2={part2} part3={part3} exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}/>
-            <Total exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}/>
+            <Content />
+            <Total exercises1={10} exercises2={7} exercises3={14} />
         </div>
     )
 }
