@@ -2,6 +2,38 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const Content = (props) => {
+return (
+        <div>
+            <p>
+                {props.part1}: Exercises {props.exercises1}
+            </p>
+            <p>
+                {props.part2}: Exercises {props.exercises2}
+            </p>
+            <p>
+                {props.part3}: Exercises {props.exercises3}
+            </p>
+        </div>
+)
+}
+
+const Header = (props) => {
+    return (
+        <h1>
+                {props.course}
+        </h1>
+    )
+}
+
+const Total = (props) => {
+    return (
+        <p>
+                Total number of exercises: {props.exercises1 + props.exercises2 + props.exercises3}
+        </p>
+    )
+}
+
 const App = () => {
     const course = "Half Stack Application Development"
     const part1 = "Fundamentals of React"
@@ -13,21 +45,9 @@ const App = () => {
 
     return (
         <div>
-            <h1>
-                {course}
-            </h1>
-            <p>
-                {part1}: Exercises {exercises1}
-            </p>
-            <p>
-                {part2}: Exercises {exercises2}
-            </p>
-            <p>
-                {part3}: Exercises {exercises3}
-            </p>
-            <p>
-                Total number of exercises: {exercises1 + exercises2 + exercises3}
-            </p>
+            <Header course={course} />
+            <Content part1={part1} part2={part2} part3={part3} exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}/>
+            <Total exercises1={exercises1} exercises2={exercises2} exercises3={exercises3}/>
         </div>
     )
 }
