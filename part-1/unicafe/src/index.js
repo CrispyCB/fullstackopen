@@ -28,14 +28,32 @@ const [bad, setBad] = useState(0)
 return (
     <div>
         <p>Give feedback on Unicafe</p>
-        <p>Good: {good}</p>
-        <p>Neutral: {neutral}</p>
-        <p>Bad: {bad}</p>
-        <p>Total: {good + bad + neutral}</p>
+        <table>
+        <tr>
+            <td>
+                Good: {good}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Neutral: {neutral}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Bad: {bad}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Total: {good + bad + neutral}
+            </td>
+        </tr>
+        </table>
+        <Statistics good={good} bad={bad} neutral={neutral}/>
         <Button onClick={()=>setGood(good+1)} text={"Good"} />
         <Button onClick={()=>setBad(bad+1)} text={"Bad"}/>
         <Button onClick={()=>setNeutral(neutral+1)} text={"Neutral"}/>
-        <Statistics good={good} bad={bad} neutral={neutral}/>
     </div>
 )
 
