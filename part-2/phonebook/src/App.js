@@ -10,17 +10,16 @@ const App = () => {
     event.preventDefault()
     setPersons(() => {
       let entry = {
-        name: `${newName}`,
+        name: newName,
         key: persons.length + 1
       }
       let people = [...persons];
-      const results = people.filter((person) => {
-        return person == entry
-      })
-      if(results.length !== 0) {
+      if (people.some((person) => entry.name === person.name)) {
+        alert(`${entry.name} already exists!`)
+      }
+      else {
         people.push(entry)
       }
-      else alert("Already exists!")
       return people
     })
   }
