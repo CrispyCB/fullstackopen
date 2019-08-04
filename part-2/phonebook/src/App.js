@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 
+import Search from './Search'
+import Results from './Results'
+import Submit from './Submit'
+
 const App = () => {
   const [ persons, setPersons] = useState([
     { name: 'Arto Hellas', number:'719-456-8213', key: 1 },
@@ -77,20 +81,9 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addNumber}>
-        <div>
-          name: <input value={newName} onChange={addName}/>
-          phone: <input value={newPhone} onChange={addPhone}/>
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-      <div>
-        search: <input value={searchQuery} onChange={updateSearchQuery} />
-      </div>
-      <h2>Numbers</h2>
-      {returnResults()}
+      <Submit addNumber={addNumber} newName={newName} addName={addName} newPhone={newPhone} addPhone={addPhone} />
+      <Search searchQuery={searchQuery} updateSearchQuery={updateSearchQuery}/>
+      <Results returnResults={returnResults} />
     </div>
   )
 }
