@@ -54,6 +54,23 @@ const App = () => {
     });
   }
 
+  const returnResults = () => {
+    if (results.length === 0 && persons.length !== 0) {
+      return (
+        <div>
+        {persons.map((person) => <p key={person.key}>{person.name} {person.number}</p>)}
+        </div>
+      )
+    }
+    else if (results.length !== 0 && persons.length !== 0) {
+      return (
+        <div>
+        {results.map((result) => <p key={result.key}>{result.name} {result.number}</p>)}
+        </div>
+      )
+    }
+  }
+
   return (
     <div>
       <h2>Phonebook</h2>
@@ -70,7 +87,7 @@ const App = () => {
         search: <input value={searchQuery} onChange={updateSearchQuery} />
       </div>
       <h2>Numbers</h2>
-      {results.length !== 0 && results.map((result) => <p key={result.key}>{result.name} {result.number}</p>)}
+      {returnResults()}
     </div>
   )
 }
