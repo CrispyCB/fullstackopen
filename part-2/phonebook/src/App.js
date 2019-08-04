@@ -2,7 +2,10 @@ import React, { useState } from 'react'
 
 const App = () => {
   const [ persons, setPersons] = useState([
-    { name: 'Arto Hellas', number:'719-456-8213', key: 1 }
+    { name: 'Arto Hellas', number:'719-456-8213', key: 1 },
+    { name: 'Ada Lovelace', number:'713-245-3412', key: 2 },
+    { name: 'Charles Babbage', number:'786-321-3216', key: 3 },
+    { name: 'Rambo Sanderson', number:'834-452-1421', key: 4 }
   ]) 
   const [ newName, setNewName ] = useState('')
   const [ newPhone, setNewPhone ] = useState('')
@@ -46,7 +49,7 @@ const App = () => {
        const query = {
           name: person.name,
           number: person.number,
-          key: Math.floor(Math.random() * 20)
+          key: Math.floor(Math.random())
         }
         queries.push(query)
         updateResults(queries)
