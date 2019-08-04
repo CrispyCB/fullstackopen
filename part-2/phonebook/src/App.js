@@ -40,13 +40,13 @@ const App = () => {
   const updateSearchQuery = (event) => {
     monitorSearchQuery(event.target.value)
     console.log(event.target.value)
-    let queries = [...persons]
+    let queries = []
     persons.forEach(person => {
-      if (person.name.toLowerCase().includes(searchQuery.toLowerCase())) {
+      if (person.name.toLowerCase().includes(event.target.value.toLowerCase())) {
        const query = {
           name: person.name,
           number: person.number,
-          key: Math.floor(Math.random * 20)
+          key: Math.floor(Math.random() * 20)
         }
         queries.push(query)
         updateResults(queries)
@@ -70,7 +70,6 @@ const App = () => {
         search: <input value={searchQuery} onChange={updateSearchQuery} />
       </div>
       <h2>Numbers</h2>
-      {results.length === 0 && persons.map((person) => <p key={person.key}>{person.name} {person.number}</p>)}
       {results.length !== 0 && results.map((result) => <p key={result.key}>{result.name} {result.number}</p>)}
     </div>
   )
